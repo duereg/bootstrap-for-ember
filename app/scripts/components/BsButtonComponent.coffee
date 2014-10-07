@@ -9,7 +9,7 @@ Bootstrap.BsButtonComponent = Ember.Component.extend(Bootstrap.TypeSupport, Boot
     attributeBindings: ['disabled', 'dismiss:data-dismiss', '_type:type', 'style']
     _type: 'button'
     bubbles: true
-    allowedProperties: ['title', 'type', 'size', 'block', 'disabled', 'clicked', 'dismiss', 'class']
+    allowedProperties: ['title', 'type', 'size', 'block', 'disabled', 'clicked', 'dismiss', 'class', 'icon', 'icon_active', 'icon_inactive']
     icon_active: undefined
     icon_inactive: undefined
 
