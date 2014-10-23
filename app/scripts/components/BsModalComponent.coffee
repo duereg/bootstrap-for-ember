@@ -49,18 +49,15 @@ Bootstrap.BsModalComponent = Ember.Component.extend(Ember.Evented,
     show: ->
         @set 'isVisible', true
         current = this
-        setTimeout (->
+        Ember.run.later(@,->
             current.set 'isVis', true
-            return
-        ), 15
-        return
+        , 15)
 
     hide: ->
         @set 'isVis', false
         current = this
         @$().one 'webkitTransitionEnd', (e) ->
             current.set 'isVisible', false
-            return
         false
 
     toggle: ->
@@ -82,7 +79,6 @@ Bootstrap.BsModalComponent = Ember.Component.extend(Ember.Evented,
         current = this
         @$().one 'webkitTransitionEnd', (e) ->
             if current.get('manual') then current.destroy() else current.hide()
-            return
          @trigger 'closed'
         
 
