@@ -46,13 +46,14 @@ Bootstrap.NotificationsView = Ember.CollectionView.extend (
         @$().css(display: 'block')
         @$().stop().animate opacity: "100" if @$().is(":animated")
         Ember.run.cancel(@showTimeTimeoutId) if @showTimeTimeoutId?
-        @showTimeTimeoutId = Ember.run.later(@,=>
-            @fadeOut(@)
+        @showTimeTimeoutId = Ember.run.later(@,->
+            @fadeOut()
         , @showTime)
 
-    fadeOut: (that)->
-        that.$().fadeOut(that.fadeOutTime, () ->
-            that.get('content').clear()
+    fadeOut: ()->
+        @$().fadeOut(@get('fadeOutTime'), Ember.run.bind(@,() ->
+                @get('content').clear()
+            )
         )
 
     mouseEnter: () ->

@@ -44,7 +44,6 @@ Currently a single notification is displayed as an Alert on top of the screen, e
       }
     }).observes('content.length'),
     resetShowTime: function() {
-      var _this = this;
       this.$().css({
         display: 'block'
       });
@@ -57,13 +56,13 @@ Currently a single notification is displayed as an Alert on top of the screen, e
         Ember.run.cancel(this.showTimeTimeoutId);
       }
       return this.showTimeTimeoutId = Ember.run.later(this, function() {
-        return _this.fadeOut(_this);
+        return this.fadeOut();
       }, this.showTime);
     },
-    fadeOut: function(that) {
-      return that.$().fadeOut(that.fadeOutTime, function() {
-        return that.get('content').clear();
-      });
+    fadeOut: function() {
+      return this.$().fadeOut(this.get('fadeOutTime'), Ember.run.bind(this, function() {
+        return this.get('content').clear();
+      }));
     },
     mouseEnter: function() {
       if (this.$().is(":animated")) {
