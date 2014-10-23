@@ -54,9 +54,9 @@ Currently a single notification is displayed as an Alert on top of the screen, e
         });
       }
       if (this.showTimeTimeoutId != null) {
-        clearTimeout(this.showTimeTimeoutId);
+        Ember.run.cancel(this.showTimeTimeoutId);
       }
-      return this.showTimeTimeoutId = setTimeout(function() {
+      return this.showTimeTimeoutId = Ember.run.later(this, function() {
         return _this.fadeOut(_this);
       }, this.showTime);
     },

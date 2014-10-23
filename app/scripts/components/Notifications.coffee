@@ -45,8 +45,8 @@ Bootstrap.NotificationsView = Ember.CollectionView.extend (
     resetShowTime: ->
         @$().css(display: 'block')
         @$().stop().animate opacity: "100" if @$().is(":animated")
-        clearTimeout(@showTimeTimeoutId) if @showTimeTimeoutId?
-        @showTimeTimeoutId = setTimeout(=>
+        Ember.run.cancel(@showTimeTimeoutId) if @showTimeTimeoutId?
+        @showTimeTimeoutId = Ember.run.later(@,=>
             @fadeOut(@)
         , @showTime)
 
