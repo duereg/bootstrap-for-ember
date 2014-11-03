@@ -57,16 +57,16 @@ Modal component.
       var current;
       this.set('isVisible', true);
       current = this;
-      setTimeout((function() {
-        current.set('isVis', true);
-      }), 15);
+      return Ember.run.later(this, function() {
+        return current.set('isVis', true);
+      }, 15);
     },
     hide: function() {
       var current;
       this.set('isVis', false);
       current = this;
       this.$().one('webkitTransitionEnd', function(e) {
-        current.set('isVisible', false);
+        return current.set('isVisible', false);
       });
       return false;
     },
@@ -92,9 +92,9 @@ Modal component.
       current = this;
       this.$().one('webkitTransitionEnd', function(e) {
         if (current.get('manual')) {
-          current.destroy();
+          return current.destroy();
         } else {
-          current.hide();
+          return current.hide();
         }
       });
       return this.trigger('closed');
