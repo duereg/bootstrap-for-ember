@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-for-ember",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "dependencies": {
     "highlight.js": "~7.3.0"
   },
