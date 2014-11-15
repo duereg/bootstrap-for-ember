@@ -122,8 +122,7 @@
     bubbles: true,
     allowedProperties: ['title', 'type', 'size', 'block', 'disabled', 'clicked', 'dismiss', 'class', 'icon', 'icon_active', 'icon_inactive'],
     icon_active: void 0,
-    icon_inactive: void 0
-  }, {
+    icon_inactive: void 0,
     init: function() {
       var attr, c, key, _i, _len, _ref, _results;
       this._super();
@@ -134,6 +133,8 @@
           key = _ref[_i];
           if (c[key] != null) {
             this.set(key, c[key]);
+          } else if ((typeof c.get === "function" ? c.get(key) : void 0) != null) {
+            this.set(key, c.get(key));
           }
         }
       } else {
