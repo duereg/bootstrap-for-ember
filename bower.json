@@ -1,6 +1,6 @@
 {
-  "name": "duereg.bootstrap_for_ember",
-  "version": "0.7.3",
+  "name": "duereg.bs-for-ember",
+  "version": "0.7.4",
   "description": "Bootstrap for Ember.js",
   "homepage": "http://ember-addons.github.io/bootstrap-for-ember",
   "authors": [
