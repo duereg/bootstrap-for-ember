@@ -200,7 +200,7 @@ In case this is a Radio, each item is rendered as a label.
         this.set('icon_inactive', this.get('parentView.icon_inactive'));
         if (this.get('parentView.justified')) {
           console.log('it was justified');
-          return this.set('layoutName', 'components/bs-button-group');
+          return this.set('layoutName', 'components/bs-btn-group');
         }
       }
     })
@@ -260,6 +260,24 @@ function program1(depth0,data) {
   hashTypes = {};
   hashContexts = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "yield", {hash:{},contexts:[depth0],types:["ID"],hashContexts:hashContexts,hashTypes:hashTypes,data:data})));
+  return buffer;
+  
+});
+this["Ember"] = this["Ember"] || {};
+this["Ember"]["TEMPLATES"] = this["Ember"]["TEMPLATES"] || {};
+
+this["Ember"]["TEMPLATES"]["components/bs-btn-group"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var buffer = '', stack1, hashTypes, hashContexts, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+
+
+  data.buffer.push("<div class=\"btn-group\">\n  ");
+  hashTypes = {};
+  hashContexts = {};
+  options = {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.partial || depth0.partial),stack1 ? stack1.call(depth0, "bs-button", options) : helperMissing.call(depth0, "partial", "bs-button", options))));
+  data.buffer.push("\n</div>\n");
   return buffer;
   
 });

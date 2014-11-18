@@ -14,7 +14,7 @@ Bootstrap.BsBtnGroup = Bootstrap.ItemsView.extend(Bootstrap.SizeSupport, Bootstr
             @set('icon_inactive', @get('parentView.icon_inactive'))
             if @get('parentView.justified')
                 console.log('it was justified')
-                @set('layoutName', 'components/bs-button-group')
+                @set('layoutName', 'components/bs-btn-group')
     )
 )
 
