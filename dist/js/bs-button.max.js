@@ -192,12 +192,16 @@ In case this is a Radio, each item is rendered as a label.
 (function() {
   Bootstrap.BsBtnGroup = Bootstrap.ItemsView.extend(Bootstrap.SizeSupport, Bootstrap.ItemsSelection, {
     classTypePrefix: ['btn-group'],
-    classNameBindings: ['vertical:btn-group-vertical:btn-group'],
+    classNameBindings: ['vertical:btn-group-vertical:btn-group', 'justified:btn-group-justified'],
     itemViewClass: Bootstrap.BsButtonComponent.extend(Bootstrap.ItemValue, Bootstrap.ItemSelection, {
       init: function() {
         this._super();
         this.set('icon_active', this.get('parentView.icon_active'));
-        return this.set('icon_inactive', this.get('parentView.icon_inactive'));
+        this.set('icon_inactive', this.get('parentView.icon_inactive'));
+        if (this.get('parentView.justified')) {
+          console.log('it was justified');
+          return this.set('layoutName', 'components/bs-button-group');
+        }
       }
     })
   });
